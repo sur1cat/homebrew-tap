@@ -5,23 +5,23 @@
 class Pitwall < Formula
   desc "The instrument panel for a fleet of coding agents"
   homepage "https://github.com/sur1cat/pitwall"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   depends_on "git" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sur1cat/pitwall/releases/download/v0.3.0/pitwall_0.3.0_darwin_amd64.tar.gz"
-      sha256 "466132ea30b33dcda56605b112a1581b02d8359e172855535162f3917fd95696"
+      url "https://github.com/sur1cat/pitwall/releases/download/v0.4.0/pitwall_0.4.0_darwin_amd64.tar.gz"
+      sha256 "c4ea0afd74db65c4d86f896e93bc4bd1f69dbd5b552a4a61eca46d30c2de6f31"
 
       define_method(:install) do
         bin.install "pitwall"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sur1cat/pitwall/releases/download/v0.3.0/pitwall_0.3.0_darwin_arm64.tar.gz"
-      sha256 "e82be9e1d388be659152f43faa70c54a33171a0ba2ec0c14a1de3efee14e7375"
+      url "https://github.com/sur1cat/pitwall/releases/download/v0.4.0/pitwall_0.4.0_darwin_arm64.tar.gz"
+      sha256 "e5527c417707be50464b37f862a471b49e3704ac5aa868f708ed4ae61cd570c6"
 
       define_method(:install) do
         bin.install "pitwall"
@@ -31,15 +31,15 @@ class Pitwall < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/pitwall/releases/download/v0.3.0/pitwall_0.3.0_linux_amd64.tar.gz"
-      sha256 "c98fd78eff2e43367c176080e432fede29609688028884b9fc823606fe14ed13"
+      url "https://github.com/sur1cat/pitwall/releases/download/v0.4.0/pitwall_0.4.0_linux_amd64.tar.gz"
+      sha256 "31b36743e1858b9cd1dc06df7082fad524c4dfdbaf8e06a74539732dc90dab31"
       define_method(:install) do
         bin.install "pitwall"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/pitwall/releases/download/v0.3.0/pitwall_0.3.0_linux_arm64.tar.gz"
-      sha256 "5262dc1492895f7ad9a08d817b04dae5f663db3197f474014ad7544c4e5b746e"
+      url "https://github.com/sur1cat/pitwall/releases/download/v0.4.0/pitwall_0.4.0_linux_arm64.tar.gz"
+      sha256 "75f13e9280f9130c11d2f3452badcb9a2b9e05c0a2589aa23922f4c2b8c5c5f2"
       define_method(:install) do
         bin.install "pitwall"
       end
