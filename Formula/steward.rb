@@ -1,29 +1,29 @@
 # typed: false
 # frozen_string_literal: true
 
-# Written by hand from the v0.2.0 release, because the release run could not
+# Written by hand from the v0.3.0 release, because the release run could not
 # reach this repository. Once HOMEBREW_TAP_TOKEN exists on sur1cat/steward,
 # GoReleaser rewrites this file on every tag and hand edits will be lost.
 class Steward < Formula
   desc "Decide what your coding agent may execute, and record what was decided"
   homepage "https://github.com/sur1cat/steward"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   depends_on "git" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sur1cat/steward/releases/download/v0.2.0/steward_0.2.0_darwin_amd64.tar.gz"
-      sha256 "4c780acc41765840ccf5bba7143fbf79d60b938ec1e7e8d8d800b48515b57755"
+      url "https://github.com/sur1cat/steward/releases/download/v0.3.0/steward_0.3.0_darwin_amd64.tar.gz"
+      sha256 "9fbfc1d7e03195caeb2faf1d93f2dc75fa53e9dad9c071779a4f220c717b5dad"
 
       def install
         bin.install "steward"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sur1cat/steward/releases/download/v0.2.0/steward_0.2.0_darwin_arm64.tar.gz"
-      sha256 "ede9bfa0a297fc49eeaeb1743590d5b1093f5705e88b46415ac1cc9149387ff3"
+      url "https://github.com/sur1cat/steward/releases/download/v0.3.0/steward_0.3.0_darwin_arm64.tar.gz"
+      sha256 "09ea58f5418a207beafa0d66cdb6fbdddd5e10aa2883d506e30e0aacbd42cd0c"
 
       def install
         bin.install "steward"
@@ -33,16 +33,16 @@ class Steward < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/steward/releases/download/v0.2.0/steward_0.2.0_linux_amd64.tar.gz"
-      sha256 "be74ba0de697e6542d09a33caebcf9bc4f87e914c9c5f7cb9bf8701f7b1b1314"
+      url "https://github.com/sur1cat/steward/releases/download/v0.3.0/steward_0.3.0_linux_amd64.tar.gz"
+      sha256 "373068fb405fc82a747ae8e3044c064c2037447641edf2032ca30dada2a147bf"
 
       def install
         bin.install "steward"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/steward/releases/download/v0.2.0/steward_0.2.0_linux_arm64.tar.gz"
-      sha256 "17b8b8af8b02cde8209b7e183eb91f7839ebe44637bdba1a1837d6157b8b8af1"
+      url "https://github.com/sur1cat/steward/releases/download/v0.3.0/steward_0.3.0_linux_arm64.tar.gz"
+      sha256 "a0f92f6c5fcbc4114f658883dfe1bffd6ae0f20b33af4b7ca0c9977b6fbb4f34"
 
       def install
         bin.install "steward"
