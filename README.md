@@ -6,6 +6,7 @@ Homebrew formulae for [pitwall](https://github.com/sur1cat/pitwall).
 brew tap sur1cat/tap
 brew install pitwall            # the command line tool
 brew install pitwall-bar        # the macOS menu bar panel, built locally
+brew install steward            # decides what your agent may execute
 ```
 
 Or without tapping first:
@@ -28,5 +29,11 @@ after one `brew tap`.
 main repository, with the release archives and their checksums filled in. Do not
 edit it by hand; edit the `brews:` block in `.goreleaser.yaml` there instead.
 
-`Formula/pitwall-bar.rb` is maintained here, because it builds from source and
-has no release artefacts to point at.
+`Formula/pitwall-bar.rb` is maintained here: it builds the app from source on
+the machine that installs it, so it points at a source tarball rather than at
+release binaries.
+
+`Formula/steward.rb` was written by hand from the v0.1.0 release, because that
+repository has no `HOMEBREW_TAP_TOKEN` yet and its release run could not reach
+here. Once the secret exists, GoReleaser takes it over and hand edits are
+lost.
