@@ -9,8 +9,8 @@
 class PitwallBar < Formula
   desc "macOS menu bar panel for pitwall"
   homepage "https://github.com/sur1cat/pitwall"
-  url "https://github.com/sur1cat/pitwall/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "2c5cc863e87074a328d89a30b68f4b9bda8e79b90a0e2a7afd541328b461da6b"
+  url "https://github.com/sur1cat/pitwall/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "e6ef480f062be169e2c6f99581549fc1a9a02b708dca1def4b538321e772512f"
   license "MIT"
   head "https://github.com/sur1cat/pitwall.git", branch: "main"
 
