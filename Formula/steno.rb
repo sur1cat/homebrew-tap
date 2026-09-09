@@ -5,15 +5,15 @@
 class Steno < Formula
   desc "Meeting notes and follow-ups: a bot joins your calls, records, transcribes, publishes"
   homepage "https://github.com/sur1cat/steno"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
 
   depends_on "ffmpeg"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sur1cat/steno/releases/download/v0.1.2/steno_0.1.2_darwin_amd64.tar.gz"
-      sha256 "4b925b724e8c6ca90360dfb377f826438285801ed2681b00ebcbda113b4105c8"
+      url "https://github.com/sur1cat/steno/releases/download/v0.1.3/steno_0.1.3_darwin_amd64.tar.gz"
+      sha256 "0234b5e6218b1dd85d36f450aaf87703b6dd5134aefb46534add5800cb83c506"
 
       define_method(:install) do
         bin.install "steno"
@@ -21,8 +21,8 @@ class Steno < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sur1cat/steno/releases/download/v0.1.2/steno_0.1.2_darwin_arm64.tar.gz"
-      sha256 "185eef20771c59719a4f86f98bd01697d347a8cb878c334b40ed4608b380d936"
+      url "https://github.com/sur1cat/steno/releases/download/v0.1.3/steno_0.1.3_darwin_arm64.tar.gz"
+      sha256 "22498469cf845cc4f5dd54c3f9771a9e56300fe489d5831b869171d196d10d9c"
 
       define_method(:install) do
         bin.install "steno"
@@ -33,16 +33,16 @@ class Steno < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/steno/releases/download/v0.1.2/steno_0.1.2_linux_amd64.tar.gz"
-      sha256 "1063b5c5704346acb7908f6f97635aef874d44c825e3088ff6dc282babeac9b0"
+      url "https://github.com/sur1cat/steno/releases/download/v0.1.3/steno_0.1.3_linux_amd64.tar.gz"
+      sha256 "fc31fceb2e53fc0eeb007ec4f9cff5b4b5d79f0e6b2a6f65d9442fc35e468887"
       define_method(:install) do
         bin.install "steno"
         pkgshare.install "adapters"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/steno/releases/download/v0.1.2/steno_0.1.2_linux_arm64.tar.gz"
-      sha256 "75e64d23d29ddee239edea627a145dee1fb5d45b15c8a6c267921a7fff43bf2c"
+      url "https://github.com/sur1cat/steno/releases/download/v0.1.3/steno_0.1.3_linux_arm64.tar.gz"
+      sha256 "dab42ef9640b955c6538b33e73209140f063b829f000bc06a0d18fc21f2f7f70"
       define_method(:install) do
         bin.install "steno"
         pkgshare.install "adapters"
@@ -56,9 +56,8 @@ class Steno < Formula
 
         steno setup
 
-      Боту нужен контейнер с Chromium, PulseAudio и ffmpeg:
-
-        git clone https://github.com/sur1cat/steno && cd steno && make bot-image
+      Боту нужен Docker: контейнер с Chromium и звуком steno скачает сам перед
+      первым созвоном. Заранее — docker pull ghcr.io/sur1cat/steno-bot
 
       Для распознавания на своей машине (не нужно с Groq и с субтитрами):
 
