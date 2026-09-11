@@ -5,15 +5,17 @@
 class Steno < Formula
   desc "Meeting notes and follow-ups: a bot joins your calls, records, transcribes, publishes"
   homepage "https://github.com/sur1cat/steno"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   depends_on "ffmpeg"
+  depends_on "jq" => :recommended
+  depends_on "whisper-cpp" => :recommended
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sur1cat/steno/releases/download/v0.3.0/steno_0.3.0_darwin_amd64.tar.gz"
-      sha256 "c97d488965db8919f11b67b9964e72367ba28fca4de0f671ba46e767cd6459d8"
+      url "https://github.com/sur1cat/steno/releases/download/v0.4.0/steno_0.4.0_darwin_amd64.tar.gz"
+      sha256 "bde5148f57a4af5a5e971636fb502ae37acb7a7a83a8b14a691ceeae94aed6f6"
 
       define_method(:install) do
         bin.install "steno"
@@ -21,8 +23,8 @@ class Steno < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sur1cat/steno/releases/download/v0.3.0/steno_0.3.0_darwin_arm64.tar.gz"
-      sha256 "60acc141ccae250c04844b8cdb44e2ad944e7b6a9ac0712210e5cac8c00b8138"
+      url "https://github.com/sur1cat/steno/releases/download/v0.4.0/steno_0.4.0_darwin_arm64.tar.gz"
+      sha256 "e3883cb99f7c77fa04d8d9ce97c277e761ab43806aec94078df7e4dec8ff0000"
 
       define_method(:install) do
         bin.install "steno"
@@ -33,16 +35,16 @@ class Steno < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/steno/releases/download/v0.3.0/steno_0.3.0_linux_amd64.tar.gz"
-      sha256 "ea056c19b8950189b8c79002985d3c2f8f2e3a312b2a03d8c6813b1002e9b75c"
+      url "https://github.com/sur1cat/steno/releases/download/v0.4.0/steno_0.4.0_linux_amd64.tar.gz"
+      sha256 "496a48108f615acafb4649cf37cea7f78efd7da6d7dfcbf71b824cba7c07a75a"
       define_method(:install) do
         bin.install "steno"
         pkgshare.install "adapters"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/steno/releases/download/v0.3.0/steno_0.3.0_linux_arm64.tar.gz"
-      sha256 "9634a473ac87058e5ca46ffe27ae6727c77fd9f233242a357a4aa5c0c5f92404"
+      url "https://github.com/sur1cat/steno/releases/download/v0.4.0/steno_0.4.0_linux_arm64.tar.gz"
+      sha256 "2738e8dab3b27b8fa6869eb7e113dd3e46a0c366aa367a1639ccafaed0d1ef2b"
       define_method(:install) do
         bin.install "steno"
         pkgshare.install "adapters"
@@ -59,9 +61,13 @@ class Steno < Formula
       Боту нужен Docker: контейнер с Chromium и звуком steno скачает сам перед
       первым созвоном. Заранее — docker pull ghcr.io/sur1cat/steno-bot
 
-      Для распознавания на своей машине (не нужно с Groq и с субтитрами):
+      Наговорить заметку, ничего не настраивая (модель скачается по одному Enter):
 
-        brew install whisper-cpp jq
+        steno note
+
+      whisper-cpp и jq поставлены как recommended: кто распознаёт в облаке
+      (Groq, AssemblyAI), может их не ставить — brew install steno
+      --without-whisper-cpp --without-jq — или убрать потом.
     EOS
   end
 
