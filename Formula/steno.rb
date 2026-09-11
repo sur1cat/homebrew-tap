@@ -5,7 +5,7 @@
 class Steno < Formula
   desc "Meeting notes and follow-ups: a bot joins your calls, records, transcribes, publishes"
   homepage "https://github.com/sur1cat/steno"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   depends_on "ffmpeg"
@@ -14,8 +14,8 @@ class Steno < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sur1cat/steno/releases/download/v0.4.0/steno_0.4.0_darwin_amd64.tar.gz"
-      sha256 "bde5148f57a4af5a5e971636fb502ae37acb7a7a83a8b14a691ceeae94aed6f6"
+      url "https://github.com/sur1cat/steno/releases/download/v0.5.0/steno_0.5.0_darwin_amd64.tar.gz"
+      sha256 "f3bc8c4af143aaeff2544fd17c769b8d089487584bce53429242c9d668f314c9"
 
       define_method(:install) do
         bin.install "steno"
@@ -23,8 +23,8 @@ class Steno < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sur1cat/steno/releases/download/v0.4.0/steno_0.4.0_darwin_arm64.tar.gz"
-      sha256 "e3883cb99f7c77fa04d8d9ce97c277e761ab43806aec94078df7e4dec8ff0000"
+      url "https://github.com/sur1cat/steno/releases/download/v0.5.0/steno_0.5.0_darwin_arm64.tar.gz"
+      sha256 "fd0234b0fad6ab54e824854ef034ab1e54ac6e284ccbd5aeaaa39a9093bcf567"
 
       define_method(:install) do
         bin.install "steno"
@@ -35,16 +35,16 @@ class Steno < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/steno/releases/download/v0.4.0/steno_0.4.0_linux_amd64.tar.gz"
-      sha256 "496a48108f615acafb4649cf37cea7f78efd7da6d7dfcbf71b824cba7c07a75a"
+      url "https://github.com/sur1cat/steno/releases/download/v0.5.0/steno_0.5.0_linux_amd64.tar.gz"
+      sha256 "b59b56351defe27882d5dc62e4b1811ac2907d4eb123149d33fd0d6057bf010a"
       define_method(:install) do
         bin.install "steno"
         pkgshare.install "adapters"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sur1cat/steno/releases/download/v0.4.0/steno_0.4.0_linux_arm64.tar.gz"
-      sha256 "2738e8dab3b27b8fa6869eb7e113dd3e46a0c366aa367a1639ccafaed0d1ef2b"
+      url "https://github.com/sur1cat/steno/releases/download/v0.5.0/steno_0.5.0_linux_arm64.tar.gz"
+      sha256 "8e30740123c9e1a14087745d91d2eaecc50664a4b502bd59feb8e2819bdae37c"
       define_method(:install) do
         bin.install "steno"
         pkgshare.install "adapters"
